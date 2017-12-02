@@ -1,6 +1,8 @@
 
 "use strict";
 
+// simple calculator as JavaScript exercise
+
 var m_value1 = 0;
 var m_value2 = 0;
 var m_result = 0;
@@ -113,13 +115,14 @@ function IsResultReady() {
 
 function ClearData() {
 	m_value1 = m_value2 = 0;
+    m_result = 0;
 	m_action.operation = "undef";
 	document.getElementById("resultTag").innerHTML = "0";
 	document.getElementById("memoryId").innerHTML = "";
 }
 
 function Init() {
-	console.log("Init ->");
+	console.log("Init calculator ->");
 	var all = document.getElementsByClassName('btn btn-primary');
 
 	for (var i = 0; i < all.length; i++) {
