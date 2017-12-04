@@ -6,6 +6,8 @@
 var m_value1 = 0;
 var m_value2 = 0;
 var m_result = 0;
+var m_comma = false;
+var m_fracQueue = 1;
 
 var m_action = {
   plus: function(a, b) { return a + b; },
@@ -49,13 +51,53 @@ function digitOnClick(eventObj) {
 			ClearData();
 
 		if (operText.length == 0) {
-			m_value1 *= 10;
-			m_value1 += Number(eventObj.target.innerHTML);
+		    if (!m_comma) {
+				m_value1 *= 10;
+				m_value1 += Number(eventObj.target.innerHTML);
+		    }
+		    else {
+		    	var frac = Number(eventObj.target.innerHTML);
+		    	var newstr = "0.";
+
+		    	for (var i = 1; i < m_fracQueue; i++) {
+		    		newstr += "0";
+		    	}
+
+		    	var power = newstr + String(frac);
+		    	console.log("power: " + power);
+		    	
+		    	m_value1 += parseFloat(power);
+		    	m_value1 = parseFloat(m_value1.toFixed(m_fracQueue));
+		    	m_fracQueue++;
+
+		    	console.log("m_value1: " + m_value1);
+		    }
+		    
 			elem.innerHTML = GetStringForResult(String(m_value1));
 		}
 		else {
-			m_value2 *= 10;
-			m_value2 += Number(eventObj.target.innerHTML);
+			if (!m_comma) {
+				m_value2 *= 10;
+				m_value2 += Number(eventObj.target.innerHTML);
+		    }
+		    else {
+		    	var frac = Number(eventObj.target.innerHTML);
+		    	var newstr = "0.";
+
+		    	for (var i = 1; i < m_fracQueue; i++) {
+		    		newstr += "0";
+		    	}
+
+		    	var power = newstr + String(frac);
+		    	console.log("power: " + power);
+		    	
+		    	m_value2 += parseFloat(power);
+		    	m_value2 = parseFloat(m_value2.toFixed(m_fracQueue));
+		    	m_fracQueue++;
+
+		    	console.log("m_value2: " + m_value2);
+		    }
+		    
 			elem.innerHTML = GetStringForResult(String(m_value2));
 		}
 	}
@@ -92,6 +134,9 @@ function digitOnClick(eventObj) {
             oper.innerHTML = String(m_value1) + action;
             m_action.operation = eventObj.target.id;
 		}
+
+		m_comma = false;
+        m_fracQueue = 1;
 	}
     else if (eventObj.target.id.length == 6) { // unary operation
     	if (m_unValidation[eventObj.target.id](m_value1)) {
@@ -114,9 +159,19 @@ function digitOnClick(eventObj) {
 				elem.innerHTML = GetStringForResult(String(m_result));
 				oper.innerHTML += String(m_value2) + " = " + String(m_result);
                 m_value1 = m_result;
+                m_comma = false;
+                m_fracQueue = 1;
 
                 console.log(oper.innerHTML);
 			}			
+		}
+	}
+	else if (eventObj.target.id.length == 2) {
+		if (IsResultReady()) {
+			// TODO:
+		}
+		else {
+			m_comma = true;
 		}
 	}
 	else if (eventObj.target.id.length == 8) { // clear all		
@@ -143,6 +198,8 @@ function IsResultReady() {
 function ClearData() {
 	m_value1 = m_value2 = 0;
     m_result = 0;
+    m_comma = false;
+    m_fracQueue = 1;
 	m_action.operation = "undef";
 	document.getElementById("resultTag").innerHTML = "0";
 	document.getElementById("memoryId").innerHTML = "";
