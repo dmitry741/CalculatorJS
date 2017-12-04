@@ -16,7 +16,10 @@ var m_action = {
 }
 
 var m_unAction = {
-  unsqrt: function(a) { return a * a; }
+  unsqrt: function(a) { return a * a; },
+  unloga: function(a) { return Math.log(a); },
+  unexpo: function(a) { return Math.exp(a); },
+  unsqrx: function(a) { return Math.sqrt(a); }
 }
 
 function digitOnClick(eventObj) {
@@ -24,7 +27,7 @@ function digitOnClick(eventObj) {
 	var oper = document.getElementById("memoryId");
 	var operText = oper.innerHTML;	
 
-	console.log("eventObj.target.id.length: " + String(eventObj.target.id.length));
+	//console.log("eventObj.target.id.length: " + String(eventObj.target.id.length));
 
 	if (eventObj.target.id.length == 3) { // digit		
 
@@ -61,7 +64,7 @@ function digitOnClick(eventObj) {
 			ClearData();
 		}
 	}
-	else if (eventObj.target.id.length == 4) { // operation
+	else if (eventObj.target.id.length == 4) { // binary operation
 		var action = eventObj.target.innerHTML;		
 
 		if (IsResultReady()) {
@@ -122,7 +125,7 @@ function ClearData() {
 }
 
 function Init() {
-	console.log("Init calculator ->");
+	console.log("Init Calculator JS ->");
 	var all = document.getElementsByClassName('btn btn-primary');
 
 	for (var i = 0; i < all.length; i++) {

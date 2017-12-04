@@ -5,7 +5,7 @@
 }
 
 .calculator {
-	 width: 280px;
+	 width: 330px;
 	 height: 320px;
 	 border-style: solid;
 	 border-width: 1px;
@@ -15,7 +15,7 @@
 }
 
 .resultwin {
-	width: 240px;
+	width: 290px;
 	height: 80px;
 	margin: 20px;
 	padding: 2px;
@@ -26,7 +26,7 @@
 }
 
 .tablecontainer {
-	width: 240px;
+	width: 290px;
 	height: 180px;
 	margin: 20px;
 }
