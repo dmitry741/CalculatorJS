@@ -29,6 +29,13 @@ var m_unValidation = {
   unsqrx: function(a) { return a > 0; }	
 }
 
+var m_resAction = {
+  unsqrt: function(x, y) { return String(x) + " x " + String(x) + " = " + String(y); },
+  unloga: function(x, y) { return "ln" + String(x) + " = " + String(y); },
+  unexpo: function(x, y) { return "e<sup>" + String(x) + "</sup> = " + String(y); },
+  unsqrx: function(x, y) { return "&radic;" + String(x) + " = " + String(y); }
+}
+
 function digitOnClick(eventObj) {
 	var elem = document.getElementById("resultTag");
 	var oper = document.getElementById("memoryId");
@@ -90,11 +97,14 @@ function digitOnClick(eventObj) {
     	if (m_unValidation[eventObj.target.id](m_value1)) {
 	        m_result = m_unAction[eventObj.target.id](m_value1);
 	        elem.innerHTML = GetStringForResult(String(m_result));
-	        oper.innerHTML = String(m_value1) + " x " + String(m_value1) + " = " + String(m_result);
-	        m_value1 = m_result;      
+	        oper.innerHTML = m_resAction[eventObj.target.id](m_value1, m_result);
+	        m_value1 = m_result; 
+
+	        console.log(oper.innerHTML);
     	}
     	else {
 			elem.innerHTML = "ERROR";
+			console.log(oper.innerHTML);
     	}
     }
 	else if (eventObj.target.id.length == 7) { // =	
@@ -104,6 +114,8 @@ function digitOnClick(eventObj) {
 				elem.innerHTML = GetStringForResult(String(m_result));
 				oper.innerHTML += String(m_value2) + " = " + String(m_result);
                 m_value1 = m_result;
+
+                console.log(oper.innerHTML);
 			}			
 		}
 	}
@@ -113,7 +125,7 @@ function digitOnClick(eventObj) {
 }
 
 function GetStringForResult(s) {
-	var maxs = 16;
+	var maxs = 15;
 	var r = s;
 
 	if (s.length > maxs) {
