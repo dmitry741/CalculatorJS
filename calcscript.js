@@ -22,6 +22,13 @@ var m_unAction = {
   unsqrx: function(a) { return Math.sqrt(a); }
 }
 
+var m_unValidation = {
+  unsqrt: function(a) { return true; },
+  unloga: function(a) { return a > 0; },
+  unexpo: function(a) { return true; },
+  unsqrx: function(a) { return a > 0; }	
+}
+
 function digitOnClick(eventObj) {
 	var elem = document.getElementById("resultTag");
 	var oper = document.getElementById("memoryId");
@@ -80,10 +87,15 @@ function digitOnClick(eventObj) {
 		}
 	}
     else if (eventObj.target.id.length == 6) { // unary operation
-        m_result = m_unAction[eventObj.target.id](m_value1);
-        elem.innerHTML = GetStringForResult(String(m_result));
-        oper.innerHTML = String(m_value1) + " x " + String(m_value1) + " = " + String(m_result);
-        m_value1 = m_result;      
+    	if (m_unValidation[eventObj.target.id](m_value1)) {
+	        m_result = m_unAction[eventObj.target.id](m_value1);
+	        elem.innerHTML = GetStringForResult(String(m_result));
+	        oper.innerHTML = String(m_value1) + " x " + String(m_value1) + " = " + String(m_result);
+	        m_value1 = m_result;      
+    	}
+    	else {
+			// TODO:    		
+    	}
     }
 	else if (eventObj.target.id.length == 7) { // =	
 		if (!IsResultReady()) {
