@@ -94,7 +94,7 @@ function digitOnClick(eventObj) {
 	        m_value1 = m_result;      
     	}
     	else {
-			// TODO:    		
+			elem.innerHTML = "ERROR";
     	}
     }
 	else if (eventObj.target.id.length == 7) { // =	
@@ -113,7 +113,7 @@ function digitOnClick(eventObj) {
 }
 
 function GetStringForResult(s) {
-	var maxs = 12;
+	var maxs = 16;
 	var r = s;
 
 	if (s.length > maxs) {
