@@ -203,13 +203,70 @@ function CreateCaclMarkup() {
 	var all = document.getElementsByClassName('calculator-js');
 
 	for (var i = 0; i < all.length; i++) {
-		var mydiv = document.createElement("div");
-		mydiv.className = "btn btn-primary";
-		mydiv.innerHTML = "New";
-		mydiv.id = "id1";
-		mydiv.style = "width: 90px";
 
-		all[i].appendChild(mydiv);
+		// create the main frame
+		var calculator = document.createElement("div");
+		calculator.className = "calculator";
+
+		// result window
+		var resultwin = document.createElement("div");
+		resultwin.className = "resultwin";
+
+		var italic = document.createElement("i");
+		var p = document.createElement("p");
+		p.className = "text-right";
+		p.id = "memoryId";
+		p.style = "height: 20px";
+
+		italic.appendChild(p);
+
+		var h2 = document.createElement("h2");
+		h2.className = "text-right";
+		h2.id = "resultTag";
+		h2.innerHTML = "0";
+
+		resultwin.appendChild(italic);
+		resultwin.appendChild(h2);
+
+		// table
+		var tablecontainer = document.createElement("div");
+		tablecontainer.className = "tablecontainer";
+
+		var a;
+
+		// 1
+		a = document.createElement("a");
+		a.className = "btn btn-primary";
+		a.id = "bu1";
+		a.style = "width: 44px; margin-right: 4px;";
+		a.innerHTML = "1";		
+
+		tablecontainer.appendChild(a);
+
+		// 2
+		a = document.createElement("a");
+		a.className = "btn btn-primary";
+		a.id = "bu2";
+		a.style = "width: 44px; margin-right: 4px;";
+		a.innerHTML = "2";
+
+		tablecontainer.appendChild(a);
+
+		// 3
+		a = document.createElement("a");
+		a.className = "btn btn-primary";
+		a.id = "bu3";
+		a.style = "width: 44px; margin-right: 4px;";
+		a.innerHTML = "3";
+
+		tablecontainer.appendChild(a);
+
+
+		calculator.appendChild(resultwin);
+		calculator.appendChild(tablecontainer);
+
+		// add calculator
+		all[i].appendChild(calculator);
 	}	
 }
 
