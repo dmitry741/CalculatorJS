@@ -200,7 +200,16 @@ function ClearData() {
 }
 
 function CreateCaclMarkup() {
-	// TODO:
+	var all = document.getElementsByClassName('calculator-js');
+
+	for (var i = 0; i < all.length; i++) {
+		var mydiv = document.createElement("div");
+		mydiv.className = "calculator";
+		mydiv.innerHTML = "New div";
+		mydiv.id = "id1";
+		mydiv.role = "button";
+		all[i].appendChild(mydiv);
+	}	
 }
 
 function AddEventListeners() {
