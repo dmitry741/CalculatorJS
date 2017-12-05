@@ -28,7 +28,7 @@ var m_unValidation = {
   unsqrt: function(a) { return true; },
   unloga: function(a) { return a > 0; },
   unexpo: function(a) { return true; },
-  unsqrx: function(a) { return a > 0; }	
+  unsqrx: function(a) { return a >= 0; }	
 }
 
 var m_resAction = {
