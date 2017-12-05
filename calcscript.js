@@ -50,7 +50,10 @@ function digitOnClick(eventObj) {
 		if (IsResultReady())
 			ClearData();
 
-		if (operText.length == 0) {
+		if (document.getElementById("memoryId").innerHTML.length == 0) {
+
+			console.log("before 1: " + String(m_value1));
+
 		    if (!m_comma) {
 				m_value1 *= 10;
 				m_value1 += Number(eventObj.target.innerHTML);
@@ -64,15 +67,12 @@ function digitOnClick(eventObj) {
 		    	}
 
 		    	var power = newstr + String(frac);
-		    	console.log("power: " + power);
 		    	
 		    	m_value1 += parseFloat(power);
 		    	m_value1 = parseFloat(m_value1.toFixed(m_fracQueue));
 		    	m_fracQueue++;
-
-		    	console.log("m_value1: " + m_value1);
 		    }
-		    
+	    
 			elem.innerHTML = GetStringForResult(String(m_value1));
 		}
 		else {
@@ -89,15 +89,12 @@ function digitOnClick(eventObj) {
 		    	}
 
 		    	var power = newstr + String(frac);
-		    	console.log("power: " + power);
 		    	
 		    	m_value2 += parseFloat(power);
 		    	m_value2 = parseFloat(m_value2.toFixed(m_fracQueue));
 		    	m_fracQueue++;
+		    }		   
 
-		    	console.log("m_value2: " + m_value2);
-		    }
-		    
 			elem.innerHTML = GetStringForResult(String(m_value2));
 		}
 	}
@@ -151,6 +148,9 @@ function digitOnClick(eventObj) {
 			elem.innerHTML = "ERROR";
 			console.log(oper.innerHTML);
     	}
+
+    	m_comma = false;
+        m_fracQueue = 1;
     }
 	else if (eventObj.target.id.length == 7) { // =	
 		if (!IsResultReady()) {
@@ -167,10 +167,7 @@ function digitOnClick(eventObj) {
 		}
 	}
 	else if (eventObj.target.id.length == 2) {
-		if (IsResultReady()) {
-			// TODO:
-		}
-		else {
+		if (!IsResultReady()) {
 			m_comma = true;
 		}
 	}
