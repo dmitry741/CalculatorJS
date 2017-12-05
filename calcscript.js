@@ -204,10 +204,11 @@ function CreateCaclMarkup() {
 
 	for (var i = 0; i < all.length; i++) {
 		var mydiv = document.createElement("div");
-		mydiv.className = "calculator";
-		mydiv.innerHTML = "New div";
+		mydiv.className = "btn btn-primary";
+		mydiv.innerHTML = "New";
 		mydiv.id = "id1";
-		mydiv.role = "button";
+		mydiv.style = "width: 90px";
+
 		all[i].appendChild(mydiv);
 	}	
 }
