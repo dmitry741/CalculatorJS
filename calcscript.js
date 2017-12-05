@@ -51,9 +51,6 @@ function digitOnClick(eventObj) {
 			ClearData();
 
 		if (document.getElementById("memoryId").innerHTML.length == 0) {
-
-			console.log("before 1: " + String(m_value1));
-
 		    if (!m_comma) {
 				m_value1 *= 10;
 				m_value1 += Number(eventObj.target.innerHTML);
