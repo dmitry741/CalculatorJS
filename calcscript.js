@@ -202,13 +202,23 @@ function ClearData() {
 	document.getElementById("memoryId").innerHTML = "";
 }
 
-function Init() {
-	console.log("Init Calculator JS ->");
+function CreateCaclMarkup() {
+	// TODO:
+}
+
+function AddEventListeners() {
 	var all = document.getElementsByClassName('btn btn-primary');
 
 	for (var i = 0; i < all.length; i++) {
 		all[i].addEventListener('click', digitOnClick, false);
-	}
+	}	
+}
+
+function Init() {
+	console.log("Start Calculator JS ->");
+
+	CreateCaclMarkup();
+	AddEventListeners();
 }
 
 window.onload = Init;
