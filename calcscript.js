@@ -232,6 +232,8 @@ function CreateCaclMarkup() {
 		var tablecontainer = document.createElement("div");
 		tablecontainer.className = "tablecontainer";
 
+		var paragraph = document.createElement("p");
+
 		var a;
 
 		// 1
@@ -261,10 +263,6 @@ function CreateCaclMarkup() {
 
 		tablecontainer.appendChild(a);
 
-//		        <a class="btn btn-primary" id="plus" style="width: 44px">+</a>
-        //<a class="btn btn-primary" id="unloga" style="width: 44px">ln</a>
-        //<a class="btn btn-primary" id="clear" style="width: 44px"><-</a>
-
         // +
 		a = document.createElement("a");
 		a.className = "btn btn-primary";
@@ -289,6 +287,25 @@ function CreateCaclMarkup() {
 		a.id = "clear";
 		a.style = "width: 44px; margin-right: 4px;";
 		a.innerHTML = "<-";
+
+		tablecontainer.appendChild(a);
+		tablecontainer.appendChild(paragraph);
+
+		// 4
+		a = document.createElement("a");
+		a.className = "btn btn-primary";
+		a.id = "bu4";
+		a.style = "width: 44px; margin-right: 4px;";
+		a.innerHTML = "4";		
+
+		tablecontainer.appendChild(a);
+
+		// 5
+		a = document.createElement("a");
+		a.className = "btn btn-primary";
+		a.id = "bu5";
+		a.style = "width: 44px; margin-right: 4px;";
+		a.innerHTML = "5";
 
 		tablecontainer.appendChild(a);
 
