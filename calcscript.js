@@ -309,6 +309,46 @@ function CreateCaclMarkup() {
 
 		tablecontainer.appendChild(a);
 
+		// 6
+		a = document.createElement("a");
+		a.className = "btn btn-primary";
+		a.id = "bu6";
+		a.style = "width: 44px; margin-right: 4px;";
+		a.innerHTML = "6";
+
+		tablecontainer.appendChild(a);
+
+		// -
+		a = document.createElement("a");
+		a.className = "btn btn-primary";
+		a.id = "minu";
+		a.style = "width: 44px; margin-right: 4px;";
+		a.innerHTML = "-";
+
+		tablecontainer.appendChild(a);
+
+		// e^x
+		a = document.createElement("a");
+		a.className = "btn btn-primary";
+		a.id = "unexpo";
+		a.style = "width: 44px; margin-right: 4px;";
+		a.innerHTML = "e<sup>x</sup>";
+
+		tablecontainer.appendChild(a);
+
+		// e^x
+		a = document.createElement("a");
+		a.className = "btn btn-primary";
+		a.id = "clearAll";
+		a.style = "width: 44px; margin-right: 4px;";
+		a.innerHTML = "C";
+
+		tablecontainer.appendChild(a);
+
+		// <a class="btn btn-primary" id="minu" style="width: 44px">-</a>
+        // <a class="btn btn-primary" id="unexpo" style="width: 44px">e<sup>x</sup></a>
+        // <a class="btn btn-primary" id="clearAll" style="width: 44px">C</a>
+
 
 		calculator.appendChild(resultwin);
 		calculator.appendChild(tablecontainer);
