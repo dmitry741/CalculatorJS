@@ -236,7 +236,7 @@ function CreateCaclMarkup() {
 		// create the main frame
 		var calculator = document.createElement("div");
 		calculator.className = "calculator"; // "panel panel-default";
-		//calculator.style = "background-color: rgb(200, 200, 200); width: 330px";		
+		//calculator.style = "background-color: rgb(200, 200, 200); width: 330px";
 
 		// result window
 		var resultwin = document.createElement("div");
@@ -450,15 +450,8 @@ function CreateCaclMarkup() {
 		calculator.appendChild(resultwin);
 		calculator.appendChild(tablecontainer);
 
-		var panel = document.createElement("div");
-		panel.className = "panel panel-default";
-		panel.style = "width: 330px;";
-
-		panel.appendChild(calculator);
-
 		// add calculator
-		//all[i].appendChild(calculator);
-		all[i].appendChild(panel);
+		all[i].appendChild(calculator);
 	}	
 }
 
