@@ -261,6 +261,37 @@ function CreateCaclMarkup() {
 
 		tablecontainer.appendChild(a);
 
+//		        <a class="btn btn-primary" id="plus" style="width: 44px">+</a>
+        //<a class="btn btn-primary" id="unloga" style="width: 44px">ln</a>
+        //<a class="btn btn-primary" id="clear" style="width: 44px"><-</a>
+
+        // +
+		a = document.createElement("a");
+		a.className = "btn btn-primary";
+		a.id = "plus";
+		a.style = "width: 44px; margin-right: 4px;";
+		a.innerHTML = "+";
+
+		tablecontainer.appendChild(a);
+
+        // ln
+		a = document.createElement("a");
+		a.className = "btn btn-primary";
+		a.id = "unloga";
+		a.style = "width: 44px; margin-right: 4px;";
+		a.innerHTML = "ln";
+
+		tablecontainer.appendChild(a);
+
+        // <-
+		a = document.createElement("a");
+		a.className = "btn btn-primary";
+		a.id = "clear";
+		a.style = "width: 44px; margin-right: 4px;";
+		a.innerHTML = "<-";
+
+		tablecontainer.appendChild(a);
+
 
 		calculator.appendChild(resultwin);
 		calculator.appendChild(tablecontainer);
