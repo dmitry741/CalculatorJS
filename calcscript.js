@@ -202,8 +202,7 @@ function ClearData() {
 function CreateCaclMarkup() {
 	var all = document.getElementsByClassName('calculator-js');
 
-	for (var i = 0; i < all.length; i++) {
-
+	for (var i = 0; i < Math.min(1, all.length); i++) {
 		// create the main frame
 		var calculator = document.createElement("div");
 		calculator.className = "calculator";
@@ -232,8 +231,6 @@ function CreateCaclMarkup() {
 		var tablecontainer = document.createElement("div");
 		tablecontainer.className = "tablecontainer";
 
-		var paragraph = document.createElement("p");
-
 		var a;
 
 		// 1
@@ -242,7 +239,6 @@ function CreateCaclMarkup() {
 		a.id = "bu1";
 		a.style = "width: 44px; margin-right: 4px;";
 		a.innerHTML = "1";		
-
 		tablecontainer.appendChild(a);
 
 		// 2
@@ -251,7 +247,6 @@ function CreateCaclMarkup() {
 		a.id = "bu2";
 		a.style = "width: 44px; margin-right: 4px;";
 		a.innerHTML = "2";
-
 		tablecontainer.appendChild(a);
 
 		// 3
@@ -260,7 +255,6 @@ function CreateCaclMarkup() {
 		a.id = "bu3";
 		a.style = "width: 44px; margin-right: 4px;";
 		a.innerHTML = "3";
-
 		tablecontainer.appendChild(a);
 
         // +
@@ -269,7 +263,6 @@ function CreateCaclMarkup() {
 		a.id = "plus";
 		a.style = "width: 44px; margin-right: 4px;";
 		a.innerHTML = "+";
-
 		tablecontainer.appendChild(a);
 
         // ln
@@ -278,7 +271,6 @@ function CreateCaclMarkup() {
 		a.id = "unloga";
 		a.style = "width: 44px; margin-right: 4px;";
 		a.innerHTML = "ln";
-
 		tablecontainer.appendChild(a);
 
         // <-
@@ -287,9 +279,9 @@ function CreateCaclMarkup() {
 		a.id = "clear";
 		a.style = "width: 44px; margin-right: 4px;";
 		a.innerHTML = "<-";
-
 		tablecontainer.appendChild(a);
-		tablecontainer.appendChild(paragraph);
+
+		tablecontainer.appendChild(document.createElement("p"));
 
 		// 4
 		a = document.createElement("a");
@@ -297,7 +289,6 @@ function CreateCaclMarkup() {
 		a.id = "bu4";
 		a.style = "width: 44px; margin-right: 4px;";
 		a.innerHTML = "4";		
-
 		tablecontainer.appendChild(a);
 
 		// 5
@@ -306,7 +297,6 @@ function CreateCaclMarkup() {
 		a.id = "bu5";
 		a.style = "width: 44px; margin-right: 4px;";
 		a.innerHTML = "5";
-
 		tablecontainer.appendChild(a);
 
 		// 6
@@ -315,7 +305,6 @@ function CreateCaclMarkup() {
 		a.id = "bu6";
 		a.style = "width: 44px; margin-right: 4px;";
 		a.innerHTML = "6";
-
 		tablecontainer.appendChild(a);
 
 		// -
@@ -333,22 +322,99 @@ function CreateCaclMarkup() {
 		a.id = "unexpo";
 		a.style = "width: 44px; margin-right: 4px;";
 		a.innerHTML = "e<sup>x</sup>";
-
 		tablecontainer.appendChild(a);
 
-		// e^x
+		// C
 		a = document.createElement("a");
 		a.className = "btn btn-primary";
 		a.id = "clearAll";
 		a.style = "width: 44px; margin-right: 4px;";
 		a.innerHTML = "C";
-
 		tablecontainer.appendChild(a);
 
-		// <a class="btn btn-primary" id="minu" style="width: 44px">-</a>
-        // <a class="btn btn-primary" id="unexpo" style="width: 44px">e<sup>x</sup></a>
-        // <a class="btn btn-primary" id="clearAll" style="width: 44px">C</a>
+		tablecontainer.appendChild(document.createElement("p"));
 
+		// 7
+		a = document.createElement("a");
+		a.className = "btn btn-primary";
+		a.id = "bu7";
+		a.style = "width: 44px; margin-right: 4px;";
+		a.innerHTML = "7";		
+		tablecontainer.appendChild(a);
+
+		// 8
+		a = document.createElement("a");
+		a.className = "btn btn-primary";
+		a.id = "bu8";
+		a.style = "width: 44px; margin-right: 4px;";
+		a.innerHTML = "8";
+		tablecontainer.appendChild(a);
+
+		// 9
+		a = document.createElement("a");
+		a.className = "btn btn-primary";
+		a.id = "bu9";
+		a.style = "width: 44px; margin-right: 4px;";
+		a.innerHTML = "9";
+		tablecontainer.appendChild(a);
+
+		// *
+		a = document.createElement("a");
+		a.className = "btn btn-primary";
+		a.id = "mult";
+		a.style = "width: 44px; margin-right: 4px;";
+		a.innerHTML = "*";
+		tablecontainer.appendChild(a);
+
+		// x^2
+		a = document.createElement("a");
+		a.className = "btn btn-primary";
+		a.id = "unsqrt";
+		a.style = "width: 44px; margin-right: 4px;";
+		a.innerHTML = "x<sup>2</sup>";
+		tablecontainer.appendChild(a);	
+
+		// sqrt(x)
+		a = document.createElement("a");
+		a.className = "btn btn-primary";
+		a.id = "unsqrx";
+		a.style = "width: 44px; margin-right: 4px;";
+		a.innerHTML = "&radic;x";
+		tablecontainer.appendChild(a);
+
+		tablecontainer.appendChild(document.createElement("p"));	
+
+		// ,
+		a = document.createElement("a");
+		a.className = "btn btn-primary";
+		a.id = "co";
+		a.style = "width: 44px; margin-right: 4px;";
+		a.innerHTML = ",";
+		tablecontainer.appendChild(a);
+
+		// 0
+		a = document.createElement("a");
+		a.className = "btn btn-primary";
+		a.id = "bu0";
+		a.style = "width: 92px; margin-right: 4px;";
+		a.innerHTML = "0";
+		tablecontainer.appendChild(a);
+
+		// /
+		a = document.createElement("a");
+		a.className = "btn btn-primary";
+		a.id = "divi";
+		a.style = "width: 44px; margin-right: 4px;";
+		a.innerHTML = "/";
+		tablecontainer.appendChild(a);
+
+		// =
+		a = document.createElement("a");
+		a.className = "btn btn-primary";
+		a.id = "equalTo";
+		a.style = "width: 92px;";
+		a.innerHTML = "=";
+		tablecontainer.appendChild(a);
 
 		calculator.appendChild(resultwin);
 		calculator.appendChild(tablecontainer);
@@ -359,11 +425,15 @@ function CreateCaclMarkup() {
 }
 
 function AddEventListeners() {
-	var all = document.getElementsByClassName('btn btn-primary');
+	var calculator = document.getElementsByClassName('calculator-js');
 
-	for (var i = 0; i < all.length; i++) {
-		all[i].addEventListener('click', digitOnClick, false);
-	}	
+	if (calculator.length > 0) {
+		var all = calculator[0].getElementsByClassName('btn btn-primary');
+
+		for (var i = 0; i < all.length; i++) {
+			all[i].addEventListener('click', digitOnClick, false);
+		}			
+	}
 }
 
 function Init() {
