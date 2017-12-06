@@ -235,7 +235,8 @@ function CreateCaclMarkup() {
 	for (var i = 0; i < Math.min(1, all.length); i++) {
 		// create the main frame
 		var calculator = document.createElement("div");
-		calculator.className = "calculator";
+		calculator.className = "calculator"; // "panel panel-default";
+		//calculator.style = "background-color: rgb(200, 200, 200); width: 330px";
 
 		// result window
 		var resultwin = document.createElement("div");
