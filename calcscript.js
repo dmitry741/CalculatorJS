@@ -96,17 +96,43 @@ function digitOnClick(eventObj) {
 		}
 	}
 	else if (eventObj.target.id.length == 5) { // clear the last
-		if (!IsResultReady()) {
+		if (!IsResultReady()) {			
 			if (operText.length == 0) {
-				var rem = m_value1 % 10;
-				m_value1 -=	rem;
-				m_value1 /= 10;
-				elem.innerHTML = GetStringForResult(String(m_value1));
+				if (IsInteger(m_value1)) {
+					var rem = m_value1 % 10;
+					m_value1 -=	rem;
+					m_value1 /= 10;
+				}
+				else {
+					var stemp = String(m_value1);
+					stemp = stemp.substr(0, stemp.length - 1);
+					m_value1 = parseFloat(stemp);
+
+					if (IsInteger(m_value1)) {
+						m_comma = false;
+						m_fracQueue = 1;
+					}
+				}
+
+				elem.innerHTML = GetStringForResult(String(m_value1));	
 			}
 			else {
-				var rem = m_value2 % 10;
-				m_value2 -=	rem;
-				m_value2 /= 10;
+				if (IsInteger(m_value2)) {
+					var rem = m_value2 % 10;
+					m_value2 -=	rem;
+					m_value2 /= 10;
+				}
+				else {
+					var stemp = String(m_value2);
+					stemp = stemp.substr(0, stemp.length - 1);
+					m_value2 = parseFloat(stemp);
+
+					if (IsInteger(m_value2)) {
+						m_comma = false;
+						m_fracQueue = 1;
+					}
+				}
+
 				elem.innerHTML = GetStringForResult(String(m_value2));
 			}
 		}
@@ -171,6 +197,10 @@ function digitOnClick(eventObj) {
 	else if (eventObj.target.id.length == 8) { // clear all		
 			ClearData();
 	}
+}
+
+function IsInteger(a) {
+	return (a == Math.round(a));
 }
 
 function GetStringForResult(s) {
