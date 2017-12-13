@@ -474,4 +474,8 @@ function Init() {
 	AddEventListeners();
 }
 
-window.onload = Init;
+$(document).ready(function() {
+	Init();
+});
+
+// window.onload = Init;
