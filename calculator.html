@@ -28,16 +28,29 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        $(".mymark").html("<h3>Hello jQuery 223</h3>");
+        $("div.mymark:eq(2)").html("<h3>Hello jQuery 223</h3>");
     });    
 </script>
 
-<div class="mymark"></div>
-<div class="mymark"></div>
+<div class="mymark">aaa</div>
+<div class="mymark">aaa</div>
+<div class="mymark">aaa</div>
+<div class="mymark1">aaa</div>
+<div class="mymark2">aaa</div>
+<div class="mymark2">aaa</div>
+
 
 <div style="margin: 40px">
     <div class="calculator-js"></div>
 </div>
+
+<input type="button" name="button" value="dwyedftw" onclick="pressme()">
+
+<script type="text/javascript">
+    function pressme() {
+        alert($("div.mymark:eq(2)").text());
+    }
+</script>
 
 <script type="text/javascript" src="calcscript.js"></script>
 
