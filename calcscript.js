@@ -456,15 +456,8 @@ function CreateCaclMarkup() {
 }
 
 function AddEventListeners() {
-	var calculator = document.getElementsByClassName('calculator-js');
-
-	if (calculator.length > 0) {
-		var all = calculator[0].getElementsByClassName('btn btn-primary');
-
-		for (var i = 0; i < all.length; i++) {
-			all[i].addEventListener('click', digitOnClick, false);
-		}			
-	}
+	var all = $(".calculator-js").children().find("a");
+	all.click(digitOnClick);
 }
 
 function Init() {
