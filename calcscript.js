@@ -1,7 +1,7 @@
 
 "use strict";
 
-// simple calculator as JavaScript exercise
+// Simple calculator as JavaScript exercise
 
 var m_value1 = 0;
 var m_value2 = 0;
